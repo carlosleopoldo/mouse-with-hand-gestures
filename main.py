@@ -94,13 +94,22 @@ def detect_gesture(frame, landmark_list, processed):
 
 def main():
     draw = mp.solutions.drawing_utils
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture("video_prueba.mp4")
+    #cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
+    if not cap.isOpened():
+        print("Error: No se pudo acceder a la cámara.")
+    else:
+        print("Cámara accesible.")
+        
     try:
         while cap.isOpened():
             ret, frame = cap.read()
+        
             if not ret:
+                print("Error al capturar el cuadro")
                 break
+        
             frame = cv2.flip(frame, 1)
             frameRGB = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             processed = hands.process(frameRGB)
@@ -114,9 +123,10 @@ def main():
 
             detect_gesture(frame, landmark_list, processed)
 
-            cv2.imshow('Frame', frame)
+            cv2.imshow('Deteccion de gestos', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+
     finally:
         cap.release()
         cv2.destroyAllWindows()
@@ -124,7 +134,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
