@@ -93,7 +93,7 @@ def detect_gesture(frame, landmark_list, processed):
         elif is_screenshot(landmark_list, thumb_index_dist):
             im1 = pyautogui.screenshot()  # Toma una captura de pantalla
             label = random.randint(1, 1000)
-            im1.save(f'mi_captura_{label}.png')  # Guarda la captura
+            im1.save(f'screenshots/mi_captura_{label}.png')  # Guarda la captura
             cv2.putText(frame, "Captura de pantalla tomada", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
 # Función principal del programa
