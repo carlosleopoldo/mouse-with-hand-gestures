@@ -1,0 +1,57 @@
+# Archivos de entorno virtual
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Archivos específicos de Python
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+*.log
+
+# Archivos de configuraciones del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Capturas de pantalla generadas por el script
+*.png
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Archivos de configuración de IDEs/editores
+.vscode/
+.idea/
+*.iml
+
+# Archivos de depuración
+debug.log
+
+# Archivos de ejecución
+*.exe
+*.dll
+*.out
+
+# Dependencias instaladas
+requirements.txt
+
+# Archivos de caché de pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archivos creados por PyInstaller
+dist/
+build/
+*.spec
+
+# Archivos de PyCharm
+.idea/
+
+# Archivos creados por jupyter
+.ipynb_checkpoints/
