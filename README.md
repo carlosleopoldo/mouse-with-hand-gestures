@@ -53,3 +53,49 @@ El sistema puede detectar los siguientes gestos y realizar las correspondientes 
 
    ```bash
    pip install -r requirements.txt
+   ```
+   
+3. **Verificar instalación**: Para asegurarte de que todas las bibliotecas se instalaron correctamente, puedes ejecutar el siguiente comando en la terminal:
+
+   ```bash
+   python -m pip show opencv-python mediapipe pyautogui pynput
+   ```
+
+
+## Ejecución del Código
+
+1. **Iniciar la cámara**: Asegúrate de que tu cámara web esté conectada y funcionando.
+
+2. **Ejecutar el programa**: En la terminal o línea de comandos, navega hasta la carpeta del proyecto y ejecuta:
+
+   ```bash
+   python main.py
+   ```
+
+   Donde `main.py` es el nombre del archivo donde tienes guardado el código principal.
+
+3. **Interacción**: Al ejecutar el programa, la ventana mostrará la imagen de la cámara y los puntos clave de la mano detectada. Utiliza los gestos mencionados anteriormente para controlar el mouse. 
+
+4. **Salir del programa**: Para salir del programa, cierra la ventana o presiona la tecla `q` en la ventana de OpenCV.
+
+## Notas
+
+- **Cámara**: El programa utiliza la cámara por defecto de tu sistema. Si tienes más de una cámara conectada, ajusta el índice del dispositivo en la línea `cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)` para seleccionar otra cámara.
+  
+- **Plataforma**: Este código ha sido probado en Windows y macOS. En Linux puede requerir ajustes para la captura de video y control del mouse.
+
+## Contribuciones
+
+Si tienes sugerencias o mejoras para el proyecto, siéntete libre de enviar un `pull request` o abrir un `issue`.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Puedes consultar el archivo `LICENSE` para más detalles.
+```
+
+### Resumen:
+- **Gestos explicados**: Detallo cada gesto que puede detectar el código y la acción correspondiente.
+- **Requisitos**: Incluyo una lista clara de los requerimientos del sistema y las bibliotecas necesarias.
+- **Instalación**: Instrucciones sobre cómo instalar Python y las dependencias necesarias.
+- **Ejecución**: Explico cómo correr el programa y cómo interactuar con él.
+- **Notas adicionales**: Información sobre la cámara y compatibilidad en distintos sistemas operativos.
