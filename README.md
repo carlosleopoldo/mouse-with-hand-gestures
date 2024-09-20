@@ -89,7 +89,6 @@ Si tienes sugerencias o mejoras para el proyecto, siéntete libre de enviar un `
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Puedes consultar el archivo `LICENSE` para más detalles.
-```
 
 ### Resumen:
 - **Gestos explicados**: Detallo cada gesto que puede detectar el código y la acción correspondiente.
