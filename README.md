@@ -41,7 +41,6 @@ El sistema puede detectar los siguientes gestos y realizar las correspondientes 
   - `pyautogui` para controlar el mouse y tomar capturas de pantalla.
   - `pynput` para simular clics del mouse.
   - `random` (librería estándar de Python) para generar nombres de archivos de captura de pantalla aleatorios.
-  - `util.py` (asegúrate de que esta librería esté presente o implementada para cálculo de ángulos y distancias entre puntos clave de los dedos).
 
 ## Instalación
 
@@ -60,7 +59,6 @@ El sistema puede detectar los siguientes gestos y realizar las correspondientes 
    ```bash
    python -m pip show opencv-python mediapipe pyautogui pynput
    ```
-
 
 ## Ejecución del Código
 
