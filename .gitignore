@@ -55,3 +55,5 @@ build/
 
 # Archivos creados por jupyter
 .ipynb_checkpoints/
+
+screenshots/
