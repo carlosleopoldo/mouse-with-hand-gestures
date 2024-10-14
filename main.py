@@ -42,8 +42,8 @@ def move_mouse(index_finger_tip):
             index_finger_tip.x * screen_width
         )  # Mapeamos la coordenada 'x' a la pantalla
         y = int(
-            index_finger_tip.y / 2 * screen_height
-        )  # Mapeamos la coordenada 'y' a la pantalla
+            index_finger_tip.y * screen_height
+        )  # Mapeamos la coordenada 'y' a la pantalla, eliminamos la división por 2
         pyautogui.moveTo(x, y)
 
 
@@ -57,31 +57,31 @@ def is_left_click(landmark_list, thumb_index_dist):
     )
 
 
-# Función para detectar si el gesto actual corresponde a un clic derecho
-def is_right_click(landmark_list, thumb_index_dist):
-    return (
-        util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50
-        and util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) > 90
-        and thumb_index_dist > 50
-    )
+# # Función para detectar si el gesto actual corresponde a un clic derecho
+# def is_right_click(landmark_list, thumb_index_dist):
+#     return (
+#         util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50
+#         and util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) > 90
+#         and thumb_index_dist > 50
+#     )
 
 
-# Función para detectar si el gesto actual corresponde a un doble clic
-def is_double_click(landmark_list, thumb_index_dist):
-    return (
-        util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) < 50
-        and util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50
-        and thumb_index_dist > 50
-    )
+# # Función para detectar si el gesto actual corresponde a un doble clic
+# def is_double_click(landmark_list, thumb_index_dist):
+#     return (
+#         util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) < 50
+#         and util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50
+#         and thumb_index_dist > 50
+#     )
 
 
-# Función para detectar si el gesto actual corresponde a una captura de pantalla
-def is_screenshot(landmark_list, thumb_index_dist):
-    return (
-        util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) < 50
-        and util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50
-        and thumb_index_dist < 50
-    )
+# # Función para detectar si el gesto actual corresponde a una captura de pantalla
+# def is_screenshot(landmark_list, thumb_index_dist):
+#     return (
+#         util.get_angle(landmark_list[5], landmark_list[6], landmark_list[8]) < 50
+#         and util.get_angle(landmark_list[9], landmark_list[10], landmark_list[12]) < 50
+#         and thumb_index_dist < 50
+#     )
 
 
 # Función principal para detectar gestos y realizar acciones correspondientes
@@ -113,42 +113,42 @@ def detect_gesture(frame, landmark_list, processed):
                 (0, 255, 0),
                 2,
             )
-        elif is_right_click(landmark_list, thumb_index_dist):
-            mouse.press(Button.right)
-            mouse.release(Button.right)  # Clic derecho
-            cv2.putText(
-                frame,
-                "Click derecho",
-                (50, 50),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                1,
-                (0, 0, 255),
-                2,
-            )
-        elif is_double_click(landmark_list, thumb_index_dist):
-            pyautogui.doubleClick()  # Doble clic
-            cv2.putText(
-                frame,
-                "Doble Click",
-                (50, 50),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                1,
-                (255, 255, 0),
-                2,
-            )
-        elif is_screenshot(landmark_list, thumb_index_dist):
-            im1 = pyautogui.screenshot()  # Toma una captura de pantalla
-            label = random.randint(1, 1000)
-            im1.save(f"screenshots/mi_captura_{label}.png")  # Guarda la captura
-            cv2.putText(
-                frame,
-                "Captura de pantalla tomada",
-                (50, 50),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                1,
-                (255, 255, 0),
-                2,
-            )
+        # elif is_right_click(landmark_list, thumb_index_dist):
+        #     mouse.press(Button.right)
+        #     mouse.release(Button.right)  # Clic derecho
+        #     cv2.putText(
+        #         frame,
+        #         "Click derecho",
+        #         (50, 50),
+        #         cv2.FONT_HERSHEY_SIMPLEX,
+        #         1,
+        #         (0, 0, 255),
+        #         2,
+        #     )
+        # elif is_double_click(landmark_list, thumb_index_dist):
+        #     pyautogui.doubleClick()  # Doble clic
+        #     cv2.putText(
+        #         frame,
+        #         "Doble Click",
+        #         (50, 50),
+        #         cv2.FONT_HERSHEY_SIMPLEX,
+        #         1,
+        #         (255, 255, 0),
+        #         2,
+        #     )
+        # elif is_screenshot(landmark_list, thumb_index_dist):
+        #     im1 = pyautogui.screenshot()  # Toma una captura de pantalla
+        #     label = random.randint(1, 1000)
+        #     im1.save(f"screenshots/mi_captura_{label}.png")  # Guarda la captura
+        #     cv2.putText(
+        #         frame,
+        #         "Captura de pantalla tomada",
+        #         (50, 50),
+        #         cv2.FONT_HERSHEY_SIMPLEX,
+        #         1,
+        #         (255, 255, 0),
+        #         2,
+        #     )
 
 
 # Función principal del programa
